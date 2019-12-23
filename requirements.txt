@@ -1,0 +1,12 @@
+REQUİREMENTS
+
+- Python 3
+
+- Python Built-in Modules:
+	1)socket
+	2)re
+	3)threading
+	4)time
+	5)select
+	6)subprocess
+	7)_thread
