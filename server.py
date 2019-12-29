@@ -20,7 +20,8 @@ def get_ip():
         s.close()
     return IP
 
-
+start = time.time()
+end = 20
 ####  -----------IP & PORT -------------####
 
 PORT = 12345    
@@ -32,7 +33,8 @@ buffer_size = 1024
 
 old_packet = ""
 start_time = 0
-name = input("Enter your name : ") 
+name = input("Enter your name : ")
+RSSI = 0
 
 Online_Users = []
 
@@ -134,29 +136,46 @@ def listen_broadcast():
             start_time = end_time
 
 def receive(string):
+    global RSSI
+    global start, end
 
     string = string[1:][:-1]
     username = string.split(",")[0].strip()
     IP = string.split(",")[1].strip()
     packet_type = ""
     message = ""
+    end = time.time()
+    elapsed_time = end-start
 
 
-    if "message" in string :
+    if "message" in string:
+        print("Elapsed: ", elapsed_time)
+        if elapsed_time < 5:
+            sendmessage(IP, "You need to wait 5 seconds before sending another command.")
+        else:
+            packet_type = string.split(",")[2].strip()
+            message = string.split(",")[3].strip()
+            rssi = int(string.split(",")[4].strip())
+            if "rm" == message[:2]:
+                sendmessage(IP, "You can not execute remove commands.")
+            else:
+                if RSSI == 0:
+                    RSSI = rssi
 
-        packet_type = string.split(",")[2].strip()
-        message = string.split(",")[3].strip()
+                print(RSSI, rssi)
+                diff = abs(rssi - RSSI)
+                if diff>10:
+                    pass
+                else:
+                    print("New command: " + message)
+                    command = message.split(" ")
+                    output = ""
+                    try:
+                        output = subprocess.check_output(command).decode("utf-8")
+                    except Exception as e:
+                        output = str(e)
 
-
-        print("\n")
-        print("#####################")
-        print("Quick Notification")
-        print("New message from " + username)
-        print("IP address of " + username + " is : " + IP)
-        print("Message is : " + message)
-        print("#####################")
-        print("\n")
-        print("Please continue to write your instruction or command below")
+                    sendmessage(IP, output)
 
     #response packet
     else:
@@ -209,20 +228,21 @@ def announce():
             time.sleep(0.25)
 
         sock.close()
-        time.sleep(60)   
+        time.sleep(10)
 
-def sendmessage():
+def sendmessage(ip, text):
 
     global Local_IP
-    global name
+    global name,start
 
     printOnlineUsers()
 
-    ip = input("Enter IP of user : ")
-    message = input("Enter your message : ")
+    message = text
     packet = "[" + name + ", " + Local_IP + ", " + "message" + ", " + message + "]"
 
     start_new_thread(send_packet,(ip , packet))
+
+    start = time.time()
 
 
 def printOnlineUsers():
