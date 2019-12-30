@@ -50,7 +50,6 @@ def decrypt(text,s):
             result += chr((ord(char) + s-65) % 26 + 65) 
   
         # Encrypt lowercase characters 
-         # Encrypt lowercase characters 
         elif(char.islower()): 
             result += chr((ord(char) + s - 97) % 26 + 97) 
         elif(char == chr(1500)):
