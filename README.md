@@ -1,5 +1,5 @@
 # To Use
-You need two computers that are connected to same local area network.
+You need two computers that are connected to the same local area network.
 
 # Usage
 1. Run server.py on your remote computer.
