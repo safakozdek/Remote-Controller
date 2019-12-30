@@ -23,7 +23,7 @@ RSSI = 0
 Online_Users = []
 
 
-# A python program to illustrate Caesar Cipher Technique
+
 def encrypt(text, s):
     result = ""
 
