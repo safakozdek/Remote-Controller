@@ -16,7 +16,7 @@ $ python3 client.py
 ```
 3. Choose a name as client
 
-4. After the handshak process(~10 secs), choose a command from list
+4. After the handshake process(~10 secs), choose a command from list
  - Show my profile 
  - Send a terminal command 
  - Quit
