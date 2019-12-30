@@ -1,5 +1,7 @@
 # To Use
-You need two computers that are connected to the same local area network.
+You need:
+- Two computers(client & server) that are connected to the same local area network.
+- Both computers should support linux OS.
 
 # Usage
 1. Run server.py on your remote computer.
