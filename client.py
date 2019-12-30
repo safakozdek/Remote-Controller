@@ -8,7 +8,6 @@ import select
 import subprocess
 from _thread import *
 
-#A python program to illustrate Caesar Cipher Technique 
 def encrypt(text,s): 
     result = "" 
   
