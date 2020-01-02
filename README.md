@@ -1,3 +1,6 @@
+# Presentation
+- https://docs.google.com/presentation/d/1aPeCFuNdfeHTEoPwpxbs-TzPWCpJ3aVK0rkECFgXrtw/edit?usp=sharing
+
 # To Use
 You need:
 - Two computers(client & server) that are connected to the same local area network.
@@ -31,6 +34,3 @@ $ python3 client.py
  - User needs to wait 5 seconds before sending another command.
  - Symetric encryption wrt RSSI value of client in both client and server side.
  - Filter mechanism according to RSSI value of client in the server side.
- 
- # Presentation
- - https://docs.google.com/presentation/d/1aPeCFuNdfeHTEoPwpxbs-TzPWCpJ3aVK0rkECFgXrtw/edit?usp=sharing
