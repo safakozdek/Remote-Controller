@@ -1,5 +1,3 @@
-# Presentation
-- https://docs.google.com/presentation/d/1aPeCFuNdfeHTEoPwpxbs-TzPWCpJ3aVK0rkECFgXrtw/edit?usp=sharing
 
 # To Use
 You need:
