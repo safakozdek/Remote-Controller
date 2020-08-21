@@ -30,5 +30,5 @@ $ python3 client.py
  
  - Remove commands are forbidden.
  - User needs to wait 5 seconds before sending another command.
- - Symetric encryption wrt RSSI value of client in both client and server side.
+ - Symmetric encryption wrt RSSI value of client in both client and server side.
  - Filter mechanism according to RSSI value of client in the server side.
